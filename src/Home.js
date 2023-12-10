@@ -63,6 +63,7 @@ const handleDelete = (id) => {
                         <td>{item.website}</td>
                         <td>
                           <button className='btn btn-sm btn-primary me-2'>Edit</button>
+                         <Link to={`/read/${item.id}`}><button className='btn btn-sm btn-secondary me-2'>Read</button></Link> 
                           <button onClick={e=>handleDelete(item.id)} className='btn btn-sm btn-danger'>Delete</button>
                         </td>
                       </tr>

@@ -1,5 +1,5 @@
-import {  createContext, useReducer  } from "react";
-import axios from "axios";
+import {  createContext, useReducer,useState  } from "react";
+
 
 const AppContext = createContext();
 
@@ -14,9 +14,7 @@ const reducer = (state, action) => {
       return { ...state, items: action.payload };
     case 'post':
       return { ...state, items: [...state.items, action.payload] };
-      case 'DELETE_ITEM':
-        const filteredItems = state.items.filter((item) => item.id !== action.payload);
-        return { ...state, items: filteredItems };  
+
     default:
       return state;
   }
@@ -28,10 +26,11 @@ const AppProvider =({children})=>{
 
 
     const [state,dispatch]=useReducer(reducer,initialState)
+    const[data,setData]= useState([]);
 
 
     return (
-        <AppContext.Provider value={{state,dispatch}}>
+        <AppContext.Provider value={{state,dispatch,data,setData}}>
             {children}
         </AppContext.Provider>
     )
