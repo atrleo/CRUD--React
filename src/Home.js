@@ -33,7 +33,6 @@ const handleDelete = (id) => {
 
 
 
-
   return (
 
     <div className='d-flex flex-column justify-content-center align-items-center bg-light vh-100'>
@@ -62,7 +61,9 @@ const handleDelete = (id) => {
                         <td>{item.email}</td>
                         <td>{item.website}</td>
                         <td>
-                          <button className='btn btn-sm btn-primary me-2'>Edit</button>
+                        <Link to={`/update/${item.id}`} className="btn btn-sm btn-primary me-2">
+                           Edit
+                        </Link>
                          <Link to={`/read/${item.id}`}><button className='btn btn-sm btn-secondary me-2'>Read</button></Link> 
                           <button onClick={e=>handleDelete(item.id)} className='btn btn-sm btn-danger'>Delete</button>
                         </td>

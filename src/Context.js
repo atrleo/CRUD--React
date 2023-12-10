@@ -5,6 +5,7 @@ const AppContext = createContext();
 
 const initialState = {
   items: [],
+  data : []
 
 };
 
@@ -14,7 +15,9 @@ const reducer = (state, action) => {
       return { ...state, items: action.payload };
     case 'post':
       return { ...state, items: [...state.items, action.payload] };
-
+      case 'read':
+        return { ...state, data:action.payload };
+  
     default:
       return state;
   }
@@ -26,11 +29,11 @@ const AppProvider =({children})=>{
 
 
     const [state,dispatch]=useReducer(reducer,initialState)
-    const[data,setData]= useState([]);
+   
 
 
     return (
-        <AppContext.Provider value={{state,dispatch,data,setData}}>
+        <AppContext.Provider value={{state,dispatch}}>
             {children}
         </AppContext.Provider>
     )

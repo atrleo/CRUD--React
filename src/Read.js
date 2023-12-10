@@ -7,13 +7,14 @@ import axios from 'axios';
 
 export default function Read() {
 
-  const {data,setData} = useContext(AppContext);
+  const {state,dispatch} = useContext(AppContext);
 
   const {id}= useParams();
   useEffect(() => {
     axios.get('http://localhost:3002/users/'+id)
-    // .then(res=>dispatch({type:'set-item', payload : res.data}))
-      .then(res=>setData(res.data))
+    .then(res=>dispatch({type:'read', payload : res.data}))
+    
+ 
 }, []);
 
 
@@ -24,18 +25,18 @@ export default function Read() {
         <h2 className="card-title">User Details</h2>
 
         <div className="mb-3">
-        <strong>Name: {data.name}</strong>
+        <strong>Name: {state.data.name}</strong>
         </div>
         <div className="mb-3">
-          <strong>Email: {data.email}</strong>
+          <strong>Email: {state.data.email}</strong>
         </div>
         <div className="mb-3">
-          <strong>Website: {data.website}</strong>
+          <strong>Website: {state.data.website}</strong>
         </div>
 
         <div className="d-flex">
           <Link to={`/update/${id}`} className="btn btn-sm btn-primary me-2">
-            Edit
+            Update
           </Link>
           <Link to="/" className="btn btn-sm btn-dark">
             Back
