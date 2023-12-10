@@ -11,11 +11,25 @@ export default function Home() {
 
 
 useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/users')
+    axios.get('http://localhost:3002/users')
     .then(res=>dispatch({type:'set-item', payload : res.data}))
 }, []);
 
 
+const handleDelete = (id) => {
+  const shouldDelete = window.confirm('Would you like to delete?');
+  if (shouldDelete) {
+    axios.delete('https://jsonplaceholder.typicode.com/users/' + id)
+      .then(response => {
+        
+        console.log('User deleted successfully:', response);
+      })
+      .catch(error => {
+    
+        console.error('Error deleting user:', error);
+      });
+  }
+};
 
 
 
@@ -49,7 +63,7 @@ useEffect(() => {
                         <td>{item.website}</td>
                         <td>
                           <button className='btn btn-sm btn-primary me-2'>Edit</button>
-                          <button className='btn btn-sm btn-danger'>Delete</button>
+                          <button onClick={e=>handleDelete(item.id)} className='btn btn-sm btn-danger'>Delete</button>
                         </td>
                       </tr>
                     ))

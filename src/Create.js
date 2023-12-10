@@ -17,7 +17,7 @@ export default function Create() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('https://jsonplaceholder.typicode.com/users', value)
+    axios.post('http://localhost:3002/users', value)
       .then(res => {
         console.log(res);
         dispatch({ type: 'post', payload: res.data });

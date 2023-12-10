@@ -14,6 +14,9 @@ const reducer = (state, action) => {
       return { ...state, items: action.payload };
     case 'post':
       return { ...state, items: [...state.items, action.payload] };
+      case 'DELETE_ITEM':
+        const filteredItems = state.items.filter((item) => item.id !== action.payload);
+        return { ...state, items: filteredItems };  
     default:
       return state;
   }
