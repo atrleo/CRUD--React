@@ -1,9 +1,9 @@
 {
   "users": [
     {
-      "name": "Leanne Graha",
-      "email": "leannegrah@uk.com",
-      "website": "lena.uk",
+      "name": "Leanne Graha updated",
+      "email": "leannegrah53@uk.com",
+      "website": "lena.uk.org",
       "id": 1
     },
     {
@@ -55,22 +55,10 @@
       "website": "conrad.com"
     },
     {
-      "id": 10,
-      "name": "Clementina DuBuque",
-      "email": "Rey.Padberg@karina.biz",
-      "website": "ambrose.net"
-    },
-    {
-      "name": "Abansih",
-      "email": "abanisht558@gmail.com",
-      "website": "atrleo10",
-      "id": 11
-    },
-    {
-      "name": "Lionel Messi",
-      "email": "leo@goat.gmail.com",
-      "website": "leogoat",
-      "id": 12
+      "name": "John Kathey",
+      "email": "john@gmail.com",
+      "website": "JohnKathey.org",
+      "id": 10
     }
   ]
 }

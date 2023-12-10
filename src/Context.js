@@ -17,6 +17,11 @@ const reducer = (state, action) => {
       return { ...state, items: [...state.items, action.payload] };
       case 'read':
         return { ...state, data:action.payload };
+      case 'delete':
+        const updatedItems = state.items.filter(item => item.id !== action.payload);
+      return { ...state, items: updatedItems };
+
+
   
     default:
       return state;

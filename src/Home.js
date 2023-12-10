@@ -19,13 +19,12 @@ useEffect(() => {
 const handleDelete = (id) => {
   const shouldDelete = window.confirm('Would you like to delete?');
   if (shouldDelete) {
-    axios.delete('https://jsonplaceholder.typicode.com/users/' + id)
+    axios.delete(`http://localhost:3002/users/`+id)
       .then(response => {
-        
         console.log('User deleted successfully:', response);
+        dispatch({ type: 'delete', payload: id }); 
       })
       .catch(error => {
-    
         console.error('Error deleting user:', error);
       });
   }
