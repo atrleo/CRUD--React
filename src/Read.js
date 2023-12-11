@@ -1,13 +1,15 @@
-import React, { useContext,useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { AppContext } from './Context'
 import axios from 'axios';
+import { useCrud } from './Context';
 
 
 
 export default function Read() {
 
-  const {state,dispatch} = useContext(AppContext);
+  // const {state,dispatch} = useContext(AppContext);
+  const {state,dispatch} = useCrud(AppContext);
 
   const {id}= useParams();
   useEffect(() => {

@@ -1,4 +1,4 @@
-import {  createContext, useReducer,useState  } from "react";
+import {  createContext, useReducer,useContext } from "react";
 
 
 const AppContext = createContext();
@@ -43,4 +43,15 @@ const AppProvider =({children})=>{
         </AppContext.Provider>
     )
 }
-export {AppContext,AppProvider};
+
+const useCrud = () => {
+  const context = useContext(AppContext);
+  if (!context) {
+    throw new Error('useCrud must be used within a CrudProvider');
+  }
+  return context;
+};
+
+
+
+export {AppContext,AppProvider,useCrud};

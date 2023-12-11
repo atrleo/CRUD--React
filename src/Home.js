@@ -7,12 +7,13 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   const { state, dispatch  } = useContext(AppContext);
-  const [data,setData]= useState();
+
 
 
 useEffect(() => {
     axios.get('http://localhost:3002/users')
     .then(res=>dispatch({type:'set-item', payload : res.data}))
+    .catch(error => console.error('Error fetching data:', error));
 }, []);
 
 
